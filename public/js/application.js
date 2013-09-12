@@ -1,16 +1,16 @@
 $(document).ready(function() {
-$('input.tweetbutton').on('submit', function(e){
-  e.preventDefault()
-  $('h2').html("we are updating your tweet")
-  $.ajax({
-    url: "/",
-    type: "post",
-    data: $(this).serialize()
-  }).done(function(response){
-    console.log(response)
-    $('h2').empty()
+
+  $('input.tweetbutton').on('click', function(e){
+    e.preventDefault()
+    $('h2').append("we are updating your tweet")
+    $.ajax({
+      url: "/",
+      type: "post",
+      data: $(this).serialize()
+    }).done(function(){
+    $('h2').remove()
+    })
   })
-})
 
 
 });
